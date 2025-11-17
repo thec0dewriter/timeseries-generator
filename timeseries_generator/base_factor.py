@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from typing import List, Dict, Optional, Union, Tuple
 
 from matplotlib.figure import Figure
-from matplotlib.axes._subplots import SubplotBase
+from matplotlib.axes import Axes
 from matplotlib.pyplot import subplots
 from pandas import DataFrame, date_range, DatetimeIndex
 from pandas._libs.tslibs.timestamps import Timestamp
@@ -111,7 +111,7 @@ class BaseFactor(ABC):
         self,
         start_date: Union[Timestamp, str, int, float],
         end_date: Optional[Union[Timestamp, str, int, float]] = None,
-    ) -> Tuple[Figure, SubplotBase]:
+    ) -> Tuple[Figure, Axes]:
         """
         Plots the factor on a 2D line plot. Convenience method to show what the factor looks like.
         Args:

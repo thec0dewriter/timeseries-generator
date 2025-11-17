@@ -1,6 +1,58 @@
 [build-system]
-requires = [
-    "setuptools>=42",
-    "wheel"
-]
+requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "timeseries_generator"
+version = "0.1.0"
+description = "Library for generating time series data"
+readme = "README.md"
+license = {text = "Apache License, v2.0"}
+authors = [
+    {name = "Zhe Sun", email = "zhe.sun@nike.com"},
+    {name = "Jaap Langemeijer"}
+]
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: Apache Software License",
+]
+dependencies = [
+    "pandas>=2.0.0",
+    "workalendar>=17.0.0",
+    "matplotlib>=3.8.0",
+    "scipy>=1.10.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "build>=1.0.0",
+    "twine>=5.0.0",
+]
+jupyter = [
+    "jupyter>=1.0.0",
+    "jupyterlab>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Nike-Inc/ts-generator"
+Repository = "https://github.com/Nike-Inc/ts-generator"
+
+[tool.setuptools]
+packages = ["timeseries_generator", "timeseries_generator.external_factors"]
+
+[tool.setuptools.package-data]
+timeseries_generator = ["resources/public_data/*.csv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test*"]

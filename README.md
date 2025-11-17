@@ -33,8 +33,59 @@ This formula describes the concepts we talk above
     - Yoga Mat: temperature insensitive
 
 ## Installation
+
+### From PyPI
 ```sh
 pip install timeseries-generator
+```
+
+### From Source/GitHub
+
+#### Using pip
+Install the latest development version directly from GitHub:
+```sh
+pip install git+https://github.com/Nike-Inc/ts-generator.git
+```
+
+Or clone the repository and install in editable mode:
+```sh
+git clone https://github.com/Nike-Inc/ts-generator.git
+cd ts-generator
+pip install -e .
+```
+
+To install with optional dependencies:
+```sh
+# For development tools (pytest, build, twine)
+pip install -e ".[dev]"
+
+# For Jupyter notebooks
+pip install -e ".[jupyter]"
+
+# For all optional dependencies
+pip install -e ".[dev,jupyter]"
+```
+
+#### Using uv
+[uv](https://github.com/astral-sh/uv) is a fast Python package installer:
+```sh
+# Install from GitHub
+uv pip install git+https://github.com/Nike-Inc/ts-generator.git
+
+# Or install in editable mode with optional dependencies
+git clone https://github.com/Nike-Inc/ts-generator.git
+cd ts-generator
+uv pip install -e ".[dev,jupyter]"
+```
+
+#### Using pixi
+[pixi](https://github.com/prefix-dev/pixi) is a package management tool:
+```sh
+# Add to your pixi project
+pixi add --pypi timeseries-generator
+
+# Or install from GitHub
+pixi add --pypi "timeseries-generator @ git+https://github.com/Nike-Inc/ts-generator.git"
 ```
 
 ## Usage
